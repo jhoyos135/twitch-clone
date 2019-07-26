@@ -23,7 +23,11 @@ function App() {
             path="/streams/edit/:id"
             render={routerProps => <StreamEdit {...routerProps} />}
           />
-          <Route exact path="/streams/delete" render={() => <StreamDelete />} />
+          <Route
+            exact
+            path="/streams/delete/:id"
+            render={routerProps => <StreamDelete {...routerProps} />}
+          />
         </Switch>
       </Router>
     </div>

@@ -1,5 +1,6 @@
 import { TYPES } from './types';
 import streams from '../apis/streams';
+import history from '../history';
 
 export const signIn = (userId, fullName) => {
   return {
@@ -23,6 +24,7 @@ export const createStream = values => async (dispatch, getState) => {
     type: TYPES.CREATE_STREAM,
     payload: res.data
   });
+  history.push('/');
 };
 
 export const fetchStreams = () => async dispatch => {

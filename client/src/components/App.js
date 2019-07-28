@@ -11,13 +11,17 @@ import history from '../history';
 
 function App() {
   return (
-    <div className="App ui container">
+    <div className="ui container">
       <Router history={history}>
         <Header />
         <Switch>
           <Route exact path="/" render={() => <StreamList />} />
           <Route exact path="/streams/create" render={() => <StreamCreate />} />
-          <Route exact path="/streams/show" render={() => <StreamShow />} />
+          <Route
+            exact
+            path="/streams/:id"
+            render={routerProps => <StreamShow {...routerProps} />}
+          />
           <Route
             exact
             path="/streams/edit/:id"
